@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tomato Crush Moment - 토마토마</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Poppins:wght@400;800;900&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: "Poppins", "Noto Sans KR", sans-serif;
         }
 
         section {
@@ -19,12 +19,12 @@
             width: 100%;
             margin: 0 auto;
             min-height: 100vh;
-            background-color: skyblue;
+            background-color: #ffffff; 
             padding: 100px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            
+            overflow: hidden;
         }
 
         header {
@@ -32,15 +32,20 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 100px;
+            padding: 30px 100px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 10;
         }
 
         header .logo {
             position: relative;
-            max-width: 80px;
+            max-width: 65px; 
+        }
+        
+        header .logo img {
+            width: 100%;
         }
 
         header ul {
@@ -54,9 +59,16 @@
 
         header ul li a {
             display: inline-block;
-            color: #333;
+            color: #555;
             margin-left: 40px;
             text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        header ul li a:hover {
+            color: #d32f2f; 
         }
 
         .content {
@@ -65,90 +77,132 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 2;
         }
 
+        /* 왼쪽 텍스트/이미지 영역 */
         .content .textBox {
             position: relative;
-            max-width: 600px;
+            max-width: 550px; 
         }
 
-        .content .textBox h2 {
-            color: #333;
-            font-size: 4em;
-            line-height: 1.4em;
-            font-weight: 500;
+        /* 메인 타이틀 이미지 스타일 */
+        .content .textBox .main-title-img {
+            display: block;
+            width: 100%;
+            max-width: 520px; /* 화면에 맞춰 타이틀 전체 이미지 크기 조절 */
+            height: auto;
         }
-        .content .textBox h2 span {
-            color: #017143;
-            font-size: 1.2em;
-            font-weight: 900;
-        }
+
+        /* LEARN MORE 버튼 스타일 */
         .content .textBox a {
             display: inline-block;
-            margin-top: 20px;
-            padding: 8px 20px;
-            background: #017143;
+            margin-top: 30px; /* 타이틀 이미지 바로 아래에 적당한 간격 배치 */
+            padding: 14px 45px;
+            background: #d32f2f;
             color: #fff;
-            border-radius: 40px;
-            font-weight: 500;
+            border-radius: 15px; 
+            font-weight: 800;
+            font-size: 0.95rem;
             letter-spacing: 1px;
             text-decoration: none;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+            transition: transform 0.3s, background 0.3s;
         }
 
+        .content .textBox a:hover {
+            background: #b71c1c;
+            transform: translateY(-3px);
+        }
+
+        /* 오른쪽 메인 이미지 영역 */
         .content .imgBox {
-            width: 600px;
-            background-color: orange;
+            position: relative;
+            width: 500px;
             display: flex;
-            justify-content: flex-end;
-            padding-right: 50px;
-            margin-top: 50px;
-
+            justify-content: center;
+            align-items: center;
+            margin-right: 50px;
         }
 
-        .content .imgBox img {
-            max-width: 340px;
+        .content .imgBox .main-icecream {
+            max-width: 320px;
+            transform: rotate(-15deg); 
+            filter: drop-shadow(10px 15px 25px rgba(0,0,0,0.15));
+            z-index: 2;
         }
 
+        .content .imgBox .price-tag {
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            max-width: 140px;
+            z-index: 3;
+            filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.1));
+        }
+
+        /* 하단 다른 토마토 제품들 */
         .thumb {
             position: absolute;
-            bottom: 20px;
+            bottom: 40px;
+            left: 100px; 
             display: flex;
-            left: 50%;
-            transform: translateX(-50%);
+            align-items: flex-end;
         }
+
         .thumb li {
             list-style: none;
-            margin: 0 20px;
+            margin-right: 25px;
             cursor: pointer;
             transition: .3s;
         }
+
         .thumb li:hover {
-            transform: translateY(-15px);
-        }
-        .thumb li img {
-            max-width: 60px;
+            transform: translateY(-10px) scale(1.05);
         }
 
+        .thumb li img {
+            max-height: 80px; 
+            object-fit: contain;
+        }
+
+        /* 우측 SNS 아이콘 영역 */
         .sci {
             position: absolute;
             top: 50%;
-            right: 30px;
+            right: 40px;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
+            z-index: 10;
         }
+
         .sci li {
             list-style: none;
+            margin: 12px 0;
         }
+        
+        .sci li a img {
+            width: 20px; 
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .sci li a :hover img {
+            opacity: 1;
+        }
+
+        /* 우측 배경 녹색 대형 그래픽 */
         .circle {
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
+            right: 0;
+            width: 45%;
             height: 100%;
-            background-color: #017143;
-            clip-path: circle(600px at right 800px);
+            background-color: #9ccc65; 
+            border-radius: 60% 0% 0% 40% / 50% 0% 0% 50%;
+            z-index: 1;
         }
 
     </style>
@@ -157,36 +211,42 @@
     
     <section>
         <div class="circle"></div>
+
         <header>
-            <a href="" class="logo"><img src="./imgs/logo.png" alt=""></a>
+            <a href="#" class="logo"><img src="./tomato-rogo.png" alt="Tomato Logo"></a>
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Menu</a></li>
-                <li><a href="">What's New</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">What's New</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </header>
+
         <div class="content">
             <div class="textBox">
-                <h2>It's not just Coffee<br>It's <span>Starbucks</span></h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis culpa eum, soluta ab placeat, voluptas molestiae est excepturi consequatur aliquid voluptatibus enim qui tempore eaque voluptates dolores iusto iste nostrum.</p>
-                <a href="">Learn More</a>
+                <img src="./title.png" alt="Your New Tomato Crush Moment" class="main-title-img">
+                
+                <a href="#">LEARN MORE</a>
             </div>
 
             <div class="imgBox">
-                <img src="./imgs/img1.png" alt="">
+                <img src="./tomatoma1.png" alt="토마토마 아이스크림" class="main-icecream">
+                <img src="./tomatoma2.png" alt="800원 가격표" class="price-tag">
             </div>
         </div>
+
         <ul class="thumb">
-            <li><img src="./imgs/thumb1.png" alt=""></li>
-            <li><img src="./imgs/thumb2.png" alt=""></li>
-            <li><img src="./imgs/thumb3.png" alt=""></li>
+            <li><img src="./temp-product1.png" alt="토마토 마이쮸"></li>
+            <li><img src="./temp-product2.png" alt="토마토 프레첼"></li>
+            <li><img src="./temp-product3.png" alt="토마토 젤리"></li>
         </ul>
+
         <ul class="sci">
-            <li><a href=""><img src="./imgs/facebook.png" alt=""></a></li>
-            <li><a href=""><img src="./imgs/twitter.png" alt=""></a></li>
-            <li><a href=""><img src="./imgs/instagram.png" alt=""></a></li>
+            <li><a href="#"><img src="./temp-twitter.png" alt="Twitter"></a></li>
+            <li><a href="#"><img src="./temp-facebook.png" alt="Facebook"></a></li>
+            <li><a href="#"><img src="./temp-instagram.png" alt="Instagram"></a></li>
         </ul>
     </section>
+
 </body>
 </html>
