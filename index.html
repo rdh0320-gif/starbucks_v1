@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tomato Crush Moment - 토마토마</title>
+    <title>Document</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Noto+Sans+KR:wght@100..900&family=Playfair+Display:ital,wght@1,700&family=Poppins:wght@400;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Poppins", "Noto Sans KR", sans-serif;
+            font-family: "Noto Sans KR", sans-serif;
         }
 
         section {
@@ -19,12 +19,12 @@
             width: 100%;
             margin: 0 auto;
             min-height: 100vh;
-            background-color: #ffffff; 
-            padding: 0 100px; /* 위아래 패딩 제거하여 콘텐츠가 꽉 차게 변경 */
+            background-color: skyblue;
+            padding: 100px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            overflow: hidden;
+            
         }
 
         header {
@@ -32,20 +32,15 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 30px 100px;
+            padding: 20px 100px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 10;
         }
 
         header .logo {
             position: relative;
-            max-width: 80px; /* 로고 크기 시안처럼 살짝 키움 */
-        }
-        
-        header .logo img {
-            width: 100%;
+            max-width: 80px;
         }
 
         header ul {
@@ -59,16 +54,9 @@
 
         header ul li a {
             display: inline-block;
-            color: #555;
+            color: #333;
             margin-left: 40px;
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        header ul li a:hover {
-            color: #d32f2f; 
         }
 
         .content {
@@ -77,103 +65,140 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 2;
-            height: 100vh; /* 화면 전체 높이 활용 */
         }
 
-        /* [조정] 왼쪽 텍스트 영역 너비 조정 */
         .content .textBox {
             position: relative;
-            width: 50%;
-            max-width: 650px; 
-            padding-top: 50px;
+            max-width: 600px;
         }
 
-        /* 1번 시안과 똑같은 강력한 타이틀 폰트 및 반응형 크기 */
-        .content .textBox .responsive-title {
-            position: relative;
-            color: #000000;
-            font-family: 'Montserrat', sans-serif;
-            font-size: calc(2.8rem + 1.8vw); /* 늘렸을 때 시안처럼 시원하게 커짐 */
-            line-height: 0.9em;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin-bottom: 15px;
-        }
-
-        .content .textBox .responsive-title .line-1 {
-            display: block;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* 1번 시안 특유의 겹치는 빨간 흘림체 */
-        .content .textBox .responsive-title .cursive-tomato {
-            display: block;
-            color: #e52d27;
-            font-family: 'Playfair Display', serif;
-            font-size: calc(3.2rem + 2.2vw); 
-            font-style: italic;
-            font-weight: 700;
-            text-transform: none;
-            line-height: 0.4em;
-            margin-top: -5px;
-            margin-bottom: 10px;
-            padding-left: 50px; 
-            position: relative;
-            z-index: 3; 
-            text-shadow: 3px 3px 0px #fff, -3px -3px 0px #fff, 3px -3px 0px #fff, -3px 3px 0px #fff; 
-        }
-
-        .content .textBox .responsive-title .line-2 {
-            display: block;
-            position: relative;
-            z-index: 2;
-        }
-
-        .content .textBox p {
-            color: #666;
-            font-size: calc(0.7rem + 0.15vw); 
-            margin-top: 20px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+        .content .textBox h2 {
+            color: #333;
+            font-size: 4em;
+            line-height: 1.4em;
             font-weight: 500;
-            max-width: 500px;
         }
-
-        .content .textBox a.btn {
+        .content .textBox h2 span {
+            color: #017143;
+            font-size: 1.2em;
+            font-weight: 900;
+        }
+        .content .textBox a {
             display: inline-block;
-            margin-top: 40px; 
-            padding: 15px 50px;
-            background: #e52d27;
+            margin-top: 20px;
+            padding: 8px 20px;
+            background: #017143;
             color: #fff;
-            border-radius: 25px; 
-            font-weight: 800;
-            font-size: 1rem;
+            border-radius: 40px;
+            font-weight: 500;
             letter-spacing: 1px;
             text-decoration: none;
-            box-shadow: 0 5px 20px rgba(229, 45, 39, 0.4);
-            transition: transform 0.3s, background 0.3s;
         }
 
-        .content .textBox a.btn:hover {
-            background: #b71c1c;
-            transform: translateY(-3px);
-        }
-
-        /* [핵심 수정] 오른쪽 메인 이미지 구역 대형화 */
         .content .imgBox {
-            position: relative;
-            width: 50%;
-            height: 100%; /* 우측 공간 꽉 채우기 */
+            width: 600px;
+            /* background-color: orange; */
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
+            padding-right: 50px;
+            margin-top: 50px;
+
+        }
+
+        .content .imgBox img {
+            max-width: 340px;
+        }
+
+        .thumb {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .thumb li {
+            list-style: none;
+            margin: 0 20px;
+            cursor: pointer;
+            transition: .3s;
+        }
+        .thumb li:hover {
+            transform: translateY(-15px);
+        }
+        .thumb li img {
+            max-width: 60px;
+        }
+
+        .sci {
+            position: absolute;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
             align-items: center;
         }
+        .sci li {
+            list-style: none;
+        }
+        .circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #017143;
+            clip-path: circle(600px at right 800px);
+        }
 
-        /* 스타벅스처럼 원을 꽉 채우도록 압도적인 크기로 스케일 업 */
-        .content .imgBox .main-icecream {
-            width: auto;
-            height: 80vh; /* 화면 높이의 80%를 차지하게 대형화 */
-            max-height: 750px; /* 너무 과하게 커지는
+    </style>
+</head>
+<body>
+    
+    <section>
+        <div class="circle"></div>
+        <header>
+            <a href="" class="logo"><img src="./imgs/logo.png" alt=""></a>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Menu</a></li>
+                <li><a href="">What's New</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>It's not just Coffee<br>It's <span>Starbucks</span></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis culpa eum, soluta ab placeat, voluptas molestiae est excepturi consequatur aliquid voluptatibus enim qui tempore eaque voluptates dolores iusto iste nostrum.</p>
+                <a href="">Learn More</a>
+            </div>
+
+            <div class="imgBox">
+                <img src="./imgs/img1.png" alt="" class="starbucks">
+            </div>
+        </div>
+        <ul class="thumb">
+            <li><img src="./imgs/thumb1.png" alt="" onclick="imgSlider('./imgs/img1.png');changeCircleColor('#017143')"></li>
+            <li><img src="./imgs/thumb2.png" alt="" onclick="imgSlider('./imgs/img2.png');changeCircleColor('#eb7495')"></li>
+            <li><img src="./imgs/thumb3.png" alt="" onclick="imgSlider('./imgs/img3.png');changeCircleColor('#d752b1')"></li>
+        </ul>
+        <ul class="sci">
+            <li><a href=""><img src="./imgs/facebook.png" alt=""></a></li>
+            <li><a href=""><img src="./imgs/twitter.png" alt=""></a></li>
+            <li><a href=""><img src="./imgs/instagram.png" alt=""></a></li>
+        </ul>
+    </section>
+
+    <script>
+        function imgSlider(anything) {
+            document.querySelector('.starbucks').src = anything;
+        }
+
+        function changeCircleColor(color) {
+            const circle = document.querySelector('.circle');
+            circle.style.background = color;
+        }
+
+    </script>
+</body>
+</html>
