@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tomato Crush Moment - 토마토마</title>
     <style>
-        /* 영문 흘림체(Playfair Display)와 단단한 고딕(Montserrat) 구글 폰트 로드 */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Noto+Sans+KR:wght@100..900&family=Playfair+Display:ital,wght@1,700&family=Poppins:wght@400;800;900&display=swap');
 
         * {
@@ -21,7 +20,7 @@
             margin: 0 auto;
             min-height: 100vh;
             background-color: #ffffff; 
-            padding: 100px;
+            padding: 0 100px; /* 위아래 패딩 제거하여 콘텐츠가 꽉 차게 변경 */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,7 +41,7 @@
 
         header .logo {
             position: relative;
-            max-width: 65px; 
+            max-width: 80px; /* 로고 크기 시안처럼 살짝 키움 */
         }
         
         header .logo img {
@@ -79,85 +78,82 @@
             justify-content: space-between;
             align-items: center;
             z-index: 2;
+            height: 100vh; /* 화면 전체 높이 활용 */
         }
 
-        /* 왼쪽 텍스트 타이틀 구역 */
+        /* [조정] 왼쪽 텍스트 영역 너비 조정 */
         .content .textBox {
             position: relative;
-            width: 55%;
+            width: 50%;
             max-width: 650px; 
+            padding-top: 50px;
         }
 
-        /* [핵심 수정] 순수 CSS 코딩으로 만든 반응형 타이틀 디자인 */
+        /* 1번 시안과 똑같은 강력한 타이틀 폰트 및 반응형 크기 */
         .content .textBox .responsive-title {
             position: relative;
             color: #000000;
             font-family: 'Montserrat', sans-serif;
-            /* 화면 너비(vw)에 맞춰 글자 크기가 유연하게 조절됨 */
-            font-size: calc(2.5rem + 2vw); 
-            line-height: 0.95em;
+            font-size: calc(2.8rem + 1.8vw); /* 늘렸을 때 시안처럼 시원하게 커짐 */
+            line-height: 0.9em;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: -1px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        /* 'YOUR NEW' 줄 스타일 */
         .content .textBox .responsive-title .line-1 {
             display: block;
             position: relative;
             z-index: 1;
         }
 
-        /* 빨간색 'Tomato' 흘림체 레이어 디자인 */
+        /* 1번 시안 특유의 겹치는 빨간 흘림체 */
         .content .textBox .responsive-title .cursive-tomato {
             display: block;
             color: #e52d27;
             font-family: 'Playfair Display', serif;
-            font-size: calc(3rem + 2.5vw); /* 대문자보다 살짝 더 크게 크기 연동 */
+            font-size: calc(3.2rem + 2.2vw); 
             font-style: italic;
             font-weight: 700;
             text-transform: none;
-            line-height: 0.5em;
-            /* 위아래 글자와 자연스럽게 겹치도록 마진 세팅 */
+            line-height: 0.4em;
             margin-top: -5px;
-            margin-bottom: 15px;
-            padding-left: 40px; /* 시안처럼 살짝 오른쪽으로 밀어주기 */
+            margin-bottom: 10px;
+            padding-left: 50px; 
             position: relative;
-            z-index: 3; /* 검은 글자 위로 올라오도록 배치 */
-            text-shadow: 2px 2px 0px #fff, -2px -2px 0px #fff, 2px -2px 0px #fff, -2px 2px 0px #fff; /* 글자가 겹칠 때 가독성을 위한 흰색 외곽선 */
+            z-index: 3; 
+            text-shadow: 3px 3px 0px #fff, -3px -3px 0px #fff, 3px -3px 0px #fff, -3px 3px 0px #fff; 
         }
 
-        /* 'CRUSH MOMENT' 줄 스타일 */
         .content .textBox .responsive-title .line-2 {
             display: block;
             position: relative;
             z-index: 2;
         }
 
-        /* 타이틀 아래 설명글 */
         .content .textBox p {
             color: #666;
-            font-size: calc(0.65rem + 0.2vw); /* 설명글도 화면 크기에 반응 */
-            margin-top: 15px;
+            font-size: calc(0.7rem + 0.15vw); 
+            margin-top: 20px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             font-weight: 500;
+            max-width: 500px;
         }
 
-        /* LEARN MORE 버튼 스타일 */
         .content .textBox a.btn {
             display: inline-block;
-            margin-top: 35px; 
-            padding: 14px 45px;
+            margin-top: 40px; 
+            padding: 15px 50px;
             background: #e52d27;
             color: #fff;
-            border-radius: 20px; 
+            border-radius: 25px; 
             font-weight: 800;
-            font-size: 0.95rem;
+            font-size: 1rem;
             letter-spacing: 1px;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(229, 45, 39, 0.3);
+            box-shadow: 0 5px 20px rgba(229, 45, 39, 0.4);
             transition: transform 0.3s, background 0.3s;
         }
 
@@ -166,145 +162,18 @@
             transform: translateY(-3px);
         }
 
-        /* 오른쪽 메인 이미지 영역 */
+        /* [핵심 수정] 오른쪽 메인 이미지 구역 대형화 */
         .content .imgBox {
             position: relative;
-            width: 45%;
-            max-width: 500px;
+            width: 50%;
+            height: 100%; /* 우측 공간 꽉 채우기 */
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-right: 50px;
         }
 
+        /* 스타벅스처럼 원을 꽉 채우도록 압도적인 크기로 스케일 업 */
         .content .imgBox .main-icecream {
-            width: 100%;
-            max-width: 320px;
-            transform: rotate(-15deg); 
-            filter: drop-shadow(10px 15px 25px rgba(0,0,0,0.15));
-            z-index: 2;
-        }
-
-        .content .imgBox .price-tag {
-            position: absolute;
-            bottom: -30px;
-            right: -20px;
-            max-width: 140px;
-            z-index: 3;
-            filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.1));
-        }
-
-        /* 하단 다른 토마토 제품들 */
-        .thumb {
-            position: absolute;
-            bottom: 40px;
-            left: 100px; 
-            display: flex;
-            align-items: flex-end;
-            z-index: 10;
-        }
-
-        .thumb li {
-            list-style: none;
-            margin-right: 25px;
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .thumb li:hover {
-            transform: translateY(-10px) scale(1.05);
-        }
-
-        .thumb li img {
-            max-height: 80px; 
-            object-fit: contain;
-        }
-
-        /* 우측 SNS 아이콘 영역 */
-        .sci {
-            position: absolute;
-            top: 50%;
-            right: 40px;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 10;
-        }
-
-        .sci li {
-            list-style: none;
-            margin: 12px 0;
-        }
-        
-        .sci li a img {
-            width: 20px; 
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-        
-        .sci li a:hover img {
-            opacity: 1;
-        }
-
-        /* 우측 배경 녹색 대형 그래픽 */
-        .circle {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 45%;
-            height: 100%;
-            background-color: #9ccc65; 
-            border-radius: 60% 0% 0% 40% / 50% 0% 0% 50%;
-            z-index: 1;
-        }
-    </style>
-</head>
-<body>
-    
-    <section>
-        <div class="circle"></div>
-
-        <header>
-            <a href="#" class="logo"><img src="./imgs/tomato_rogo.png" alt="Tomato Logo"></a>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">What's New</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </header>
-
-        <div class="content">
-            <div class="textBox">
-                <h2 class="responsive-title">
-                    <span class="line-1">Your New</span>
-                    <span class="cursive-tomato">Tomato</span>
-                    <span class="line-2">Crush Moment</span>
-                </h2>
-                
-                <p>A curated archive of refreshing red tastes, from ripe moments to simple pleasures.</p>
-                <a href="#" class="btn">LEARN MORE</a>
-            </div>
-
-            <div class="imgBox">
-                <img src="./imgs/tomatoma1.png" alt="토마토마 아이스크림" class="main-icecream">
-                <img src="./imgs/tomatoma2.png" alt="800원 가격표" class="price-tag">
-            </div>
-        </div>
-
-        <ul class="thumb">
-            <li><img src="./imgs/img1.png" alt="토마토 마이쮸"></li>
-            <li><img src="./imgs/img2.png" alt="토마토 프레첼"></li>
-            <li><img src="./imgs/img3.png" alt="토마토 젤리"></li>
-        </ul>
-
-        <ul class="sci">
-            <li><a href="#"><img src="./imgs/twitter.png" alt="Twitter"></a></li>
-            <li><a href="#"><img src="./imgs/facebook.png" alt="Facebook"></a></li>
-            <li><a href="#"><img src="./imgs/instagram.png" alt="Instagram"></a></li>
-        </ul>
-    </section>
-
-</body>
-</html>
+            width: auto;
+            height: 80vh; /* 화면 높이의 80%를 차지하게 대형화 */
+            max-height: 750px; /* 너무 과하게 커지는
